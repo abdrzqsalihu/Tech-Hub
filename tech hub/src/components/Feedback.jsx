@@ -21,7 +21,7 @@ function Feedback () {
                 origin: 'auto',
                 perView: 3.5,
                 spacing: 32,
-              },
+              },  
             },
           },
         });
