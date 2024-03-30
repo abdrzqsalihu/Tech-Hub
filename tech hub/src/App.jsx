@@ -8,6 +8,7 @@ import Choose from "./components/Choose";
 import Categories from "./components/Categories";
 import Team from "./components/Team";
 import Feedback from "./components/Feedback";
+import CTA from "./components/CTA";
 
 const App = () =>
   (
@@ -47,10 +48,14 @@ const App = () =>
         <Team />
         </div>
       </div>
-
       <div className={`bg-white mt-16 mb-10 pb-10 ${styles.flexStart} ${styles.paddingX}`}>
         <div className={`${styles.boxWidth}`}>
         <Feedback />
+        </div>
+      </div>
+      <div className={`bg-[#E9F8F3B3] mt-16 mb-10 pb-10 p-10 ${styles.flexStart} ${styles.paddingX}`}>
+        <div className={`${styles.boxWidth}`}>
+        <CTA />
         </div>
       </div>
     </div>

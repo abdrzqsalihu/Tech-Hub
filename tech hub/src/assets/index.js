@@ -33,6 +33,7 @@ import woman2 from "./woman2.png";
 import socials from "./socials.png";
 import arrowleft from "./arrowleft.png"
 import arrowright from "./arrowright.png"
+import Call from "./Call.png";
 
 export {
     logo,
@@ -70,4 +71,5 @@ export {
     socials,
     arrowleft,
     arrowright,
+    Call,
 }

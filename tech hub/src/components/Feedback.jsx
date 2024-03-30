@@ -1,18 +1,27 @@
 import React, { useEffect } from 'react';
 import KeenSlider from 'keen-slider';
+import { woman1, socials, curve1, man1, man2, woman2 } from '../assets';
+import styles from '../style';
 
-function Feedback () {
 
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm';
-        // Initialize Keen Slider when component mounts
-        script.async = true;
-        const keenSlider = new KeenSlider('#keen-slider', {
+function Feedback() {
+  useEffect(() => {
+    // Create a script element
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm';
+
+    // Load the script asynchronously
+    script.async = true;
+
+    // Define a function to initialize the slider
+    const initializeSlider = () => {
+      const keenSlider = new KeenSlider(
+        '#keen-slider',
+        {
           loop: true,
           slides: {
             origin: 'center',
-            perView: 1.25,
+            perView: 1.2,
             spacing: 16,
           },
           breakpoints: {
@@ -21,40 +30,103 @@ function Feedback () {
                 origin: 'auto',
                 perView: 3.5,
                 spacing: 32,
-              },  
+              },
             },
           },
-        });
-    
-        // Get the previous and next buttons
-        const keenSliderPrevious = document.getElementById('keen-slider-previous');
-        const keenSliderNext = document.getElementById('keen-slider-next');
-    
-        // Add click event listeners to navigate previous and next
-        keenSliderPrevious.addEventListener('click', () => keenSlider.prev());
-        keenSliderNext.addEventListener('click', () => keenSlider.next());
-    
-        // Cleanup: Remove event listeners when component unmounts
-        return () => {
-          keenSlider.destroy(); // Destroy Keen Slider instance
-          keenSliderPrevious.removeEventListener('click', () => keenSlider.prev());
-          keenSliderNext.removeEventListener('click', () => keenSlider.next());
-        };
-      }, []);
+        },
+        []
+      );
+
+      const keenSliderPrevious = document.getElementById('keen-slider-previous');
+      const keenSliderNext = document.getElementById('keen-slider-next');
+
+      keenSliderPrevious.addEventListener('click', () => keenSlider.prev());
+      keenSliderNext.addEventListener('click', () => keenSlider.next());
+    };
+
+    // Set the onload event to initialize the slider after the script is loaded
+    script.onload = initializeSlider;
+
+    // Append the script to the document head
+    document.head.appendChild(script);
+
+    // Cleanup: Remove the script when the component unmounts
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []); // Empty dependency array ensures the effect runs only once
 
   return (
-    <section className="bg-gray-50">
+  <section>
+    <div>
+    <div className={`${styles.flexCenter} flex justify-center items-center`}>
+        <div className={`relative text-center text-[40px]`}>
+            <h1 className='text-[#1E1100] mt-10' style={{fontFamily: 'public sans',fontWeight: '700'}}>Our Best <span className='text-[#20B486]'>Instructors</span>
+            <div style={{marginTop: '-7px'}} className='ml-[45%] md:ml-[55%]'>
+                <img src={curve1} alt=""/>
+            </div>
+            </h1>
+        </div>
+      </div>
+        <div>
+            <p className='text-[#1E1E1E] text-center mt-3 text-[20px]' style={{fontFamily:'public sans'}}>Our instructors are highly qualified and experienced professionals in their respective <br className='hidden sm:block'/> fields. They possess industry expertise and a passion for teaching, ensuring that you <br className='hidden sm:block'/> receive relevant and practical knowledge throughout your studies.volved over the <br className='hidden sm:block'/> years, sometimes by accident.</p>
+        </div>
+    </div>
   <div className="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
-    <div className="max-w-7xl items-end justify-between sm:flex sm:pe-6 lg:pe-8">
-      <h2 className="max-w-xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-        Read trusted reviews from our customers
-      </h2>
+    <div className="-mx-6 mt-8 lg:col-span-2 lg:mx-0">
+      <div id="keen-slider" className="keen-slider">
+        <div className="keen-slider__slide">
+            <div className='bg-[#ffffff] p-4' style={{ width: '312px', height: '388px' }}>
+                  <img src={woman1} alt="" />
+                <div className='mx-auto'>
+                  <h1 className='text-black text-center mt-5 lg:text-xl text-base font-semibold'>Jacob Jones</h1>
+                  <p className='text-[#6D737A] text-center'>UI-UX Design Expert</p>
+                  <img src={socials} alt="" className='mx-auto mt-2'/>
+                </div>
+            </div>
+        </div>
 
-      <div className="mt-8 flex gap-4 lg:mt-0">
+        <div className="keen-slider__slide">
+            <div className='bg-[#ffffff] p-4' style={{ width: '312px', height: '388px' }}>
+                  <img src={man1} alt="" />
+                <div className='mx-auto'>
+                  <h1 className='text-black text-center mt-5 lg:text-xl text-base font-semibold'>Jacob Jones</h1>
+                  <p className='text-[#6D737A] text-center'>Marketing Expart</p>
+                  <img src={socials} alt="" className='justify-center mx-auto mt-2'/>
+                </div>
+            </div>
+        </div>
+
+        <div className="keen-slider__slide">
+            <div className='bg-[#ffffff] p-4' style={{ width: '312px', height: '388px' }}>
+                  <img src={man2} alt="" />
+                <div className='mx-auto'>
+                  <h1 className='text-black text-center mt-5 lg:text-xl text-base font-semibold'>Jacob Jones</h1>
+                  <p className='text-[#6D737A] text-center'>Full-stack Expert</p>
+                  <img src={socials} alt="" className='mx-auto mt-2'/>
+                </div>
+            </div>
+        </div>
+
+        <div className="keen-slider__slide">
+            <div className='bg-[#ffffff] p-4' style={{ width: '312px', height: '388px' }}>
+                  <img src={woman2} alt="" />
+                <div className='mx-auto'>
+                  <h1 className='text-black text-center mt-5 lg:text-xl text-base font-semibold'>Jacob Jones</h1>
+                  <p className='text-[#6D737A] text-center'>Photograpy Expert</p>
+                  <img src={socials} alt="" className='mx-auto mt-2'/>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+  <div className="mt- flex gap-4 lg:mt-0 lg:justify-end justify-center">
         <button
           aria-label="Previous slide"
           id="keen-slider-previous"
-          className="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+          className="rounded-md p-3 text-black bg-[#FFFFFF] transition hover:bg-[#EEA10D] hover:text-white shadow-lg"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +143,7 @@ function Feedback () {
         <button
           aria-label="Next slide"
           id="keen-slider-next"
-          className="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+          className="rounded-md p-3 text-black bg-[#FFFFFF] transition hover:bg-[#EEA10D] hover:text-white shadow-xl"
         >
           <svg
             className="size-5 rtl:rotate-180"
@@ -89,251 +161,9 @@ function Feedback () {
           </svg>
         </button>
       </div>
-    </div>
-
-    <div className="-mx-6 mt-8 lg:col-span-2 lg:mx-0">
-      <div id="keen-slider" className="keen-slider">
-        <div className="keen-slider__slide">
-          <blockquote
-            className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
-          >
-            <div>
-              <div className="flex gap-0.5 text-green-500">
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-              </div>
-
-              <div className="mt-4">
-                <p className="text-2xl font-bold text-rose-600 sm:text-3xl">Stayin' Alive</p>
-
-                <p className="mt-4 leading-relaxed text-gray-700">
-                  No, Rose, they are not breathing. And they have no arms or legs … Where are they?
-                  You know what? If we come across somebody with no arms or legs, do we bother
-                  resuscitating them? I mean, what quality of life do we have there?
-                </p>
-              </div>
-            </div>
-
-            <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-              &mdash; Michael Scott
-            </footer>
-          </blockquote>
-        </div>
-
-        <div className="keen-slider__slide">
-          <blockquote
-            className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
-          >
-            <div>
-              <div className="flex gap-0.5 text-green-500">
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-              </div>
-
-              <div className="mt-4">
-                <p className="text-2xl font-bold text-rose-600 sm:text-3xl">Stayin' Alive</p>
-
-                <p className="mt-4 leading-relaxed text-gray-700">
-                  No, Rose, they are not breathing. And they have no arms or legs … Where are they?
-                  You know what? If we come across somebody with no arms or legs, do we bother
-                  resuscitating them? I mean, what quality of life do we have there?
-                </p>
-              </div>
-            </div>
-
-            <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-              &mdash; Michael Scott
-            </footer>
-          </blockquote>
-        </div>
-
-        <div className="keen-slider__slide">
-          <blockquote
-            className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
-          >
-            <div>
-              <div className="flex gap-0.5 text-green-500">
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-              </div>
-
-              <div className="mt-4">
-                <p className="text-2xl font-bold text-rose-600 sm:text-3xl">Stayin' Alive</p>
-
-                <p className="mt-4 leading-relaxed text-gray-700">
-                  No, Rose, they are not breathing. And they have no arms or legs … Where are they?
-                  You know what? If we come across somebody with no arms or legs, do we bother
-                  resuscitating them? I mean, what quality of life do we have there?
-                </p>
-              </div>
-            </div>
-
-            <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-              &mdash; Michael Scott
-            </footer>
-          </blockquote>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
-  )
+  );
 }
 
-export default Feedback
+export default Feedback;
