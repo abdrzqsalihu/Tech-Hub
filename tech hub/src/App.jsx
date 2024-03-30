@@ -9,6 +9,7 @@ import Categories from "./components/Categories";
 import Team from "./components/Team";
 import Feedback from "./components/Feedback";
 import CTA from "./components/CTA";
+import Footer from "./components/Footer";
 
 const App = () =>
   (
@@ -56,6 +57,11 @@ const App = () =>
       <div className={`bg-[#E9F8F3B3] mt-16 mb-10 pb-10 p-10 ${styles.flexStart} ${styles.paddingX}`}>
         <div className={`${styles.boxWidth}`}>
         <CTA />
+        </div>
+      </div>
+      <div className={`bg-white mt-16 mb-10 pb-10 p-10 ${styles.flexStart} ${styles.paddingX}`}>
+        <div className={`${styles.boxWidth}`}>
+        <Footer />
         </div>
       </div>
     </div>
