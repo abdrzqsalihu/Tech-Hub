@@ -6,14 +6,14 @@ const Rating = () => (
     <section>
         <div className={`${styles.flexCenter} flex justify-center items-center`}>
         <div className={`relative text-center text-[40px]`}>
-            <h1 className='text-[#1E1100] mt-10' style={{fontFamily: 'public sans',fontWeight: '700'}}>Impact In <span className='text-[#20B486]'>Numbers</span>
-            <div style={{marginTop: '-10px'}} className='ml-[45%] md:ml-[48%]'>
-                <img src={curve1} alt=""/>
+            <h1 className='text-[#1E1100] mt-10 lg:text-[40px] text-[25px]' style={{fontFamily: 'public sans',fontWeight: '700'}}>Impact In <span className='text-[#20B486]'>Numbers</span>
+            <div className='ml-[55%] md:ml-[48%] -mt-1'>
+                <img src={curve1} alt="" className='lg:w-[100%] w-[95%]'/>
             </div>
             </h1>
         </div>
         </div>
-        <div className='text-[#1E1E1E] text-center mt-5 text-[20px]' style={{fontFamily: 'public sans', lineHeight: '24px', fontWeight: '400'}}>
+        <div className='text-[#1E1E1E] text-center mt-5 lg:text-[20px] text-[15px]' style={{fontFamily: 'public sans', lineHeight: '24px', fontWeight: '400'}}>
             <p>We are committed to helping our students kickstart their careers in the tech <br className='sm:block hidden' /> world. Through partnerships with leading companies and organizations, we <br className='sm:block hidden'/> provide internship opportunities, job placement assistance, and career <br className='sm:block hidden'/> development resources.</p>
         </div>
 

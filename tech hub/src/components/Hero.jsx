@@ -6,20 +6,20 @@ const Hero = () => {
   return (
     <section className='flex flex-1 flex-col lg:flex-row md:pt-20 pb-0 mt-10'>
         <div className={`${styles.heading2} mt-16`}>
-            <h1 style={{fontFamily: 'public sans'}} className='text-[30px]'>
+            <h1 style={{fontFamily: 'public sans'}} className='text-[30px] lg:text-[48px]'>
             Unleash Your <span style={{fontFamily: 'public sans', color: '#EEA10D'}}>Tech Skills</span> <br className='sm:block hidden'/> and Shape the Future <br className='sm:block hidden'/> with <span style={{fontFamily: 'forte', color: '#EEA10D'}}>Tech Hub</span>
             </h1>
-            <h2 className={`${styles.paragraph} text-white`}>
+            <h2 className={`${styles.paragraph} text-white lg:text-[24px] text-[15px]`}>
             Inspiring Brilliance, Shaping the Tech World
             </h2>
             <div className='flex items-center  gap-10'>
                 <div>
-                <a href="#" style={{fontFamily: 'poppins', fontSize: '18px', fontWeight: '100', background: '#EEA10D', padding: '10px', borderRadius: '5px'}}>Apply Now</a>
+                <a href="#" style={{fontFamily: 'poppins', fontWeight: '100', background: '#EEA10D', padding: '10px', borderRadius: '5px'}} className='lg:text-[16px] text-[10px]'>Apply Now</a>
                 </div>
 
-                <div className='flex items-center'>
+                <div className='flex items-center mt-2'>
                   <img src={play} alt="" className='w-[15%]'/>
-                <a href="#" style={{fontFamily: 'poppins', fontWeight: '100', marginLeft: '25px'}}>Watch how it works</a>
+                <a href="#" style={{fontFamily: 'poppins', fontWeight: '100', marginLeft: '25px'}} className='lg:text-[24px] text-[15px]'>Watch how it works</a>
                 </div>
             </div>
         </div>

@@ -60,16 +60,16 @@ function Team() {
   <section>
     <div>
     <div className={`${styles.flexCenter} flex justify-center items-center`}>
-        <div className={`relative text-center text-[40px]`}>
+        <div className={`relative text-center lg:text-[40px] text-[25px]`}>
             <h1 className='text-[#1E1100] mt-10' style={{fontFamily: 'public sans',fontWeight: '700'}}>Our Best <span className='text-[#20B486]'>Instructors</span>
-            <div style={{marginTop: '-7px'}} className='ml-[45%] md:ml-[55%]'>
+            <div className='ml-[45%] md:ml-[55%]'>
                 <img src={curve1} alt=""/>
             </div>
             </h1>
         </div>
       </div>
         <div>
-            <p className='text-[#1E1E1E] text-center mt-3 text-[20px]' style={{fontFamily:'public sans'}}>Our instructors are highly qualified and experienced professionals in their respective <br className='hidden sm:block'/> fields. They possess industry expertise and a passion for teaching, ensuring that you <br className='hidden sm:block'/> receive relevant and practical knowledge throughout your studies.volved over the <br className='hidden sm:block'/> years, sometimes by accident.</p>
+            <p className='text-[#1E1E1E] text-center mt-3 lg:text-[20px] text-[18px]' style={{fontFamily:'public sans'}}>Our instructors are highly qualified and experienced professionals in their respective <br className='hidden sm:block'/> fields. They possess industry expertise and a passion for teaching, ensuring that you <br className='hidden sm:block'/> receive relevant and practical knowledge throughout your studies.volved over the <br className='hidden sm:block'/> years, sometimes by accident.</p>
         </div>
     </div>
   <div className="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">

@@ -59,7 +59,7 @@ const App = () =>
         <CTA />
         </div>
       </div>
-      <div className={`bg-white mt-16 mb-10 pb-10 p-10 ${styles.flexStart} ${styles.paddingX}`}>
+      <div className={`bg-white mt-16 pb-10 p-10 ${styles.flexStart} ${styles.paddingX}`}>
         <div className={`${styles.boxWidth}`}>
         <Footer />
         </div>
