@@ -34,6 +34,11 @@ import socials from "./socials.png";
 import arrowleft from "./arrowleft.png"
 import arrowright from "./arrowright.png"
 import Call from "./Call.png";
+import fb from "./fb.png";
+import pintrest from "./pintrest.png";
+import instagram from "./instagram.png";
+import be from "./be.png";
+import linkedin from "./linkedin.png";
 
 export {
     logo,
@@ -72,4 +77,9 @@ export {
     arrowleft,
     arrowright,
     Call,
+    pintrest,
+    be,
+    fb,
+    instagram,
+    linkedin,
 }
